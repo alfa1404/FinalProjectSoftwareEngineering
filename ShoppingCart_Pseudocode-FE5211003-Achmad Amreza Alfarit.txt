@@ -1,0 +1,67 @@
+Pseudocode untuk aplikasi Shopping Cart sederhana (menambahkan barang ke shopping cart dan calculate jumlah barang)
+// Inisialisasi variabel
+jumlah_kue ← 3
+kue ← ["Nogosari", "Lemper", "Roti Sus"]
+harga_kue ← [2000, 3000, 4000]
+pesanan ← [0, 0, 0]
+total_harga ← 0
+alamat_pengiriman ← ""
+bukti_transfer ← ""
+
+// Login/Register
+DO
+    WRITE "Silakan login atau register"
+    WRITE "1. Login"
+    WRITE "2. Register"
+    WRITE "Pilihan Anda: "
+    READ pilihan
+
+    IF pilihan = 1 THEN
+        WRITE "Masukkan email: "
+        READ email
+        WRITE "Masukkan password: "
+        READ password
+
+        IF username = "admin" AND password = "admin" THEN
+            WRITE "Login berhasil"
+            EXIT
+        ELSE
+            WRITE "email atau password salah"
+        END IF
+    ELSE IF pilihan = 2 THEN
+        WRITE "Masukkan email: "
+        READ email
+        WRITE "Masukkan password: "
+        READ password
+        WRITE "Daftar berhasil"
+        EXIT
+    ELSE
+        WRITE "Pilihan tidak valid"
+    END IF
+WHILE true
+
+// Pemesanan Kue
+DO
+    WRITE "Silakan pilih kue: "
+    FOR i ← 0 TO jumlah_kue - 1 DO
+        WRITE (i + 1) + ". " + kue[i] + " (Rp " + harga_kue[i] + ")"
+    END FOR
+
+    WRITE "Daftar menu: "
+    READ daftar_kue
+    WRITE "Jumlah kue: "
+    READ pesanan[daftar_kue - 1]
+    total_harga ← total_harga + (harga_makanan[daftar_kue - 1] * pesanan[daftar_kue - 1])
+    WRITE "Pesan lagi? (Y/N)"
+    READ pilihan_lanjut
+WHILE pilihan_lanjut = "Y"
+
+// Pembayaran
+WRITE "Alamat pengiriman: "
+READ alamat_pengiriman
+
+WRITE "Upload bukti transfer: "
+READ bukti_transfer
+
+WRITE "Total harga: " + total_harga
+
